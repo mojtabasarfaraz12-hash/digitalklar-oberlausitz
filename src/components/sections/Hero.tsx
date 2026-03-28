@@ -45,8 +45,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
             Ich bringe Ihr Unternehmen in der Oberlausitz an die Spitze der
-            Suchergebnisse. SEO, Marketing & Strategie. Persönlich, messbar,
-            erfolgreich.
+            Suchergebnisse. Von SEO und Online-Marketing bis hin zu modernem
+            Webdesign, das Kunden begeistert.
           </motion.p>
 
           {/* CTA Buttons */}
