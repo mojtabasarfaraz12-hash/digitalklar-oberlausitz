@@ -1,0 +1,8 @@
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="800" fill="#0A0A0F"/>
+  <circle cx="300" cy="300" r="120" fill="#111118" stroke="#06B6D4" stroke-width="2" opacity="0.5"/>
+  <path d="M300 260c-33.1 0-60 26.9-60 60s26.9 60 60 60 60-26.9 60-60-26.9-60-60-60z" fill="#1E2A3A"/>
+  <path d="M300 390c-80 0-150 40-150 100v10h300v-10c0-60-70-100-150-100z" fill="#1E2A3A"/>
+  <text x="300" y="560" text-anchor="middle" font-family="system-ui" font-size="14" fill="#64748B">Foto hier platzieren</text>
+  <text x="300" y="580" text-anchor="middle" font-family="system-ui" font-size="11" fill="#475569">profile.jpg</text>
+</svg>
