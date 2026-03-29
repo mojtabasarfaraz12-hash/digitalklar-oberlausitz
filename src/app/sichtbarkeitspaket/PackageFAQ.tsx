@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Gibt es versteckte Kosten?",
     answer:
-      "Nein. Der Monatspreis deckt alles ab — Design, Entwicklung, Hosting, Wartung und Optimierung. Es gibt keine Setup-Gebühren und keine Überraschungen.",
+      "Nein. Der Monatspreis deckt alles ab: Design, Entwicklung, Hosting, Wartung und Optimierung. Es gibt keine Setup-Gebühren und keine Überraschungen.",
   },
   {
     question: "Was passiert nach den 24 Monaten?",

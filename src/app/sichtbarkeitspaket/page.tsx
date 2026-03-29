@@ -21,9 +21,9 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { PackageFAQ } from "./PackageFAQ";
 
 export const metadata: Metadata = {
-  title: "Sichtbarkeitspaket — Alles in einem Paket",
+  title: "Sichtbarkeitspaket | Alles in einem Paket",
   description:
-    "Professionelle Website, SEO, Google Business Profil, Hosting & Wartung — ab 249€/mtl. Das All-Inclusive Paket für Ihre digitale Sichtbarkeit in der Oberlausitz.",
+    "Professionelle Website, SEO, Google Business Profil, Hosting & Wartung. Ab 249€/mtl. Das All-Inclusive Paket für Ihre digitale Sichtbarkeit in der Oberlausitz.",
 };
 
 const packageFeatures = [
@@ -49,7 +49,7 @@ const packageFeatures = [
     icon: "Server",
     title: "Hosting & Wartung",
     description:
-      "Schnelles, sicheres Hosting mit regelmäßigen Updates und technischer Wartung — Sie müssen sich um nichts kümmern.",
+      "Schnelles, sicheres Hosting mit regelmäßigen Updates und technischer Wartung. Sie müssen sich um nichts kümmern.",
   },
   {
     icon: "BarChart3",
@@ -61,7 +61,7 @@ const packageFeatures = [
     icon: "User",
     title: "Persönlicher Ansprechpartner",
     description:
-      "Direkter Kontakt zu mir — kein Callcenter, keine Warteschlange. Ich kenne Ihr Projekt persönlich.",
+      "Direkter Kontakt zu mir. Kein Callcenter, keine Warteschlange. Ich kenne Ihr Projekt persönlich.",
   },
 ];
 
@@ -99,7 +99,7 @@ export default function SichtbarkeitspaketPage() {
               </span>
             </h1>
             <p className="mt-6 mx-auto max-w-2xl text-lg text-white/40 font-light leading-relaxed">
-              Website, SEO und Google Business Profil — ein transparentes Monatspaket.
+              Website, SEO und Google Business Profil. Ein transparentes Monatspaket.
               Keine versteckten Kosten, keine Überraschungen. Alles aus einer Hand.
             </p>
           </ScrollReveal>
@@ -146,7 +146,7 @@ export default function SichtbarkeitspaketPage() {
               <h3 className="text-lg font-bold text-error">Ohne Paket</h3>
               <p className="mt-3 text-text-secondary leading-relaxed">
                 Website-Erstellung kostet einmalig tausende Euro. Dazu kommen Hosting,
-                Wartung, SEO und Google-Optimierung — alles separat, alles unübersichtlich.
+                Wartung, SEO und Google-Optimierung. Alles separat, alles unübersichtlich.
                 Viele Unternehmen geben auf, bevor sie überhaupt anfangen.
               </p>
             </div>
@@ -156,7 +156,7 @@ export default function SichtbarkeitspaketPage() {
               <h3 className="text-lg font-bold text-success">Mit Sichtbarkeitspaket</h3>
               <p className="mt-3 text-text-secondary leading-relaxed">
                 Ein planbarer Monatsbetrag für alles. Professionelle Website, Google-Optimierung,
-                Hosting und persönliche Betreuung. Kein Risiko, keine Überraschungen — und Sie
+                Hosting und persönliche Betreuung. Kein Risiko, keine Überraschungen. Sie
                 sind ab Tag eins online sichtbar.
               </p>
             </div>
@@ -204,7 +204,7 @@ export default function SichtbarkeitspaketPage() {
               </div>
 
               <p className="mt-4 text-xs text-white/20">
-                Unverbindliches Erstgespräch — wir besprechen gemeinsam Ihre Ziele.
+                Unverbindliches Erstgespräch. Wir besprechen gemeinsam Ihre Ziele.
               </p>
             </div>
           </ScrollReveal>

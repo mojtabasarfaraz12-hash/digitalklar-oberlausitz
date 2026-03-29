@@ -27,7 +27,7 @@ const audiences = [
     icon: <Heart size={24} strokeWidth={1.5} />,
     title: "Tagespflegen",
     description:
-      "Tagesbetreuung ist gefragt — aber Angehörige müssen Sie erst finden. Ich sorge dafür, dass Ihre Tagespflege bei Google sichtbar wird und Vertrauen aufbaut, bevor der erste Anruf kommt.",
+      "Tagesbetreuung ist gefragt, aber Angehörige müssen Sie erst finden. Ich sorge dafür, dass Ihre Tagespflege bei Google sichtbar wird und Vertrauen aufbaut, bevor der erste Anruf kommt.",
   },
   {
     icon: <Home size={24} strokeWidth={1.5} />,
@@ -44,7 +44,7 @@ const audiences = [
 ];
 
 const painPoints = [
-  "Patienten und Angehörige suchen online — und finden Ihre Konkurrenz",
+  "Patienten und Angehörige suchen online und finden Ihre Konkurrenz",
   "Ihre Website ist veraltet oder gar nicht vorhanden",
   "Google Business Profil fehlt oder wird nicht gepflegt",
   "Keine klare Abhebung von anderen Pflegediensten in der Region",
@@ -56,7 +56,7 @@ const services = [
     icon: <Monitor size={24} strokeWidth={1.5} />,
     title: "Website für Pflegeeinrichtungen",
     description:
-      "Eine professionelle Website, die Vertrauen schafft. Mit klaren Informationen zu Ihren Leistungen, Ihrem Team und dem Aufnahmeprozess — optimiert für Angehörige, die schnell Antworten suchen.",
+      "Eine professionelle Website, die Vertrauen schafft. Mit klaren Informationen zu Ihren Leistungen, Ihrem Team und dem Aufnahmeprozess, optimiert für Angehörige, die schnell Antworten suchen.",
   },
   {
     icon: <Search size={24} strokeWidth={1.5} />,
@@ -68,7 +68,7 @@ const services = [
     icon: <TrendingUp size={24} strokeWidth={1.5} />,
     title: "Online-Marketing für Pflege",
     description:
-      "Gezielte Strategien, um Angehörige dort zu erreichen, wo sie nach Hilfe suchen. Von Social Media bis Google Ads — abgestimmt auf die Besonderheiten der Pflegebranche.",
+      "Gezielte Strategien, um Angehörige dort zu erreichen, wo sie nach Hilfe suchen. Von Social Media bis Google Ads, abgestimmt auf die Besonderheiten der Pflegebranche.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function PflegeMarketingPage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-white/40 font-light leading-relaxed">
               Ich komme aus der Pflege und aus dem Marketing. Ich verstehe,
-              warum Angehörige sich für oder gegen Ihren Dienst entscheiden — und
+              warum Angehörige sich für oder gegen Ihren Dienst entscheiden, und
               wie Sie online die richtige Botschaft senden.
             </p>
           </ScrollReveal>
@@ -200,7 +200,7 @@ export default function PflegeMarketingPage() {
               <span className="gradient-text-accent">sprechen</span>
             </h2>
             <p className="mt-5 mx-auto max-w-xl text-white/40 leading-relaxed">
-              Ich verstehe die Herausforderungen in der Pflege — nicht nur als Marketer,
+              Ich verstehe die Herausforderungen in der Pflege, nicht nur als Marketer,
               sondern aus eigener Erfahrung. In einem kostenlosen Erstgespräch zeige ich Ihnen,
               wie Ihre Einrichtung online sichtbar wird.
             </p>

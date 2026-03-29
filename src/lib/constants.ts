@@ -25,7 +25,7 @@ export const SERVICES = [
     title: "Webdesign & Entwicklung",
     shortTitle: "Webdesign",
     description:
-      "Moderne, schnelle Websites, die Kunden überzeugen. Vom Design bis zum Hosting — alles aus einer Hand.",
+      "Moderne, schnelle Websites, die Kunden überzeugen. Vom Design bis zum Hosting, alles aus einer Hand.",
     icon: "Monitor",
     features: [
       "Professionelles Webdesign",

@@ -26,7 +26,7 @@ export function PackageHighlight() {
           </h2>
 
           <p className="mt-5 mx-auto max-w-xl text-lg text-white/40 font-light">
-            Website, SEO und Google Business Profil — ein transparentes Monatspaket
+            Website, SEO und Google Business Profil. Ein transparentes Monatspaket
             für Ihre digitale Sichtbarkeit.
           </p>
         </ScrollReveal>

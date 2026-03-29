@@ -41,7 +41,7 @@ const serviceDetails: Record<
     problem:
       "Viele Unternehmen haben entweder keine Website oder eine veraltete, die auf mobilen Geräten schlecht aussieht. Potenzielle Kunden verlieren sofort das Vertrauen und gehen zur Konkurrenz.",
     solution:
-      "Ich erstelle moderne, schnelle Websites, die auf allen Geräten perfekt aussehen und für Suchmaschinen optimiert sind. Vom Design bis zum Hosting — alles aus einer Hand.",
+      "Ich erstelle moderne, schnelle Websites, die auf allen Geräten perfekt aussehen und für Suchmaschinen optimiert sind. Vom Design bis zum Hosting, alles aus einer Hand.",
     process: [
       "Analyse Ihrer Anforderungen und Zielgruppe",
       "Modernes Webdesign mit Ihrem Branding",

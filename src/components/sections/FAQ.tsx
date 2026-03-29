@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "Was kostet eine Zusammenarbeit mit DigitalKlar?",
     answer:
-      "Der einfachste Einstieg ist das Sichtbarkeitspaket ab 249€ pro Monat — darin ist alles enthalten: Website, SEO, Google Business Profil, Hosting und persönliche Betreuung. Für individuelle Projekte erstelle ich gerne ein separates Angebot. Die Erstberatung ist immer kostenlos.",
+      "Der einfachste Einstieg ist das Sichtbarkeitspaket ab 249€ pro Monat. Darin ist alles enthalten: Website, SEO, Google Business Profil, Hosting und persönliche Betreuung. Für individuelle Projekte erstelle ich gerne ein separates Angebot. Die Erstberatung ist immer kostenlos.",
   },
   {
     question: "Was beinhaltet das Sichtbarkeitspaket?",
@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "Wie läuft die Zusammenarbeit ab?",
     answer:
-      "Wir starten mit einem kostenlosen Erstgespräch, in dem wir Ihre Ziele besprechen. Dann erstelle ich einen individuellen Plan mit konkreten Maßnahmen. Der einfachste Start ist das Sichtbarkeitspaket — Sie erhalten regelmäßige Updates und können mich jederzeit erreichen.",
+      "Wir starten mit einem kostenlosen Erstgespräch, in dem wir Ihre Ziele besprechen. Dann erstelle ich einen individuellen Plan mit konkreten Maßnahmen. Der einfachste Start ist das Sichtbarkeitspaket. Sie erhalten regelmäßige Updates und können mich jederzeit erreichen.",
   },
 ];
 
