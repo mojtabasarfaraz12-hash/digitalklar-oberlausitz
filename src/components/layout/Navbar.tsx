@@ -1,14 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
-import { NAV_LINKS } from "@/lib/constants";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { NAV_LINKS, SERVICES } from "@/lib/constants";
+
+const leistungenDropdown = [
+  ...SERVICES.map((s) => ({ label: s.title, href: `/leistungen/${s.slug}` })),
+  { label: "Pflege-Marketing", href: "/branche/pflege-marketing" },
+];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileLeistungenOpen, setIsMobileLeistungenOpen] = useState(false);
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -20,6 +28,15 @@ export function Navbar() {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isMobileOpen]);
+
+  const handleDropdownEnter = () => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setIsDropdownOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setIsDropdownOpen(false), 150);
+  };
 
   return (
     <>
@@ -49,19 +66,70 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-10">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-[13px] font-medium transition-colors tracking-wide ${
-                  link.href === "/sichtbarkeitspaket"
-                    ? "text-accent-light hover:text-white"
-                    : "text-white/40 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.href === "/leistungen" ? (
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={handleDropdownEnter}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <Link
+                    href={link.href}
+                    className="inline-flex items-center gap-1 text-[13px] font-medium text-white/40 transition-colors tracking-wide hover:text-white"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={12}
+                      className={`transition-transform duration-200 ${
+                        isDropdownOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </Link>
+
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
+                      >
+                        <div className="min-w-[220px] rounded-xl border border-white/[0.08] bg-black/90 backdrop-blur-2xl p-2 shadow-2xl">
+                          {leistungenDropdown.map((item, i) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className={`block rounded-lg px-4 py-2.5 text-[13px] text-white/50 transition-all hover:bg-white/[0.06] hover:text-white ${
+                                item.href.includes("pflege")
+                                  ? "mt-1 border-t border-white/[0.04] pt-3 text-accent-light/60 hover:text-accent-light"
+                                  : ""
+                              }`}
+                              onClick={() => setIsDropdownOpen(false)}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-[13px] font-medium transition-colors tracking-wide ${
+                    link.href === "/sichtbarkeitspaket"
+                      ? "text-accent-light hover:text-white"
+                      : "text-white/40 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <a
               href="/buchen"
               className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black rounded-full text-[13px] font-bold tracking-wide transition-transform hover:scale-105 active:scale-95"
@@ -82,33 +150,87 @@ export function Navbar() {
         </nav>
       </motion.header>
 
-      {/* Mobile Menu — full-screen takeover */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-10"
+            className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {NAV_LINKS.map((link, i) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 30 }}
-                transition={{ delay: i * 0.06, duration: 0.5 }}
-              >
-                <Link
-                  href={link.href}
-                  className="text-3xl font-bold text-white/80 hover:text-white transition-colors tracking-tight"
-                  onClick={() => setIsMobileOpen(false)}
+            {NAV_LINKS.map((link, i) =>
+              link.href === "/leistungen" ? (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 30 }}
+                  transition={{ delay: i * 0.06, duration: 0.5 }}
+                  className="flex flex-col items-center"
                 >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
+                  <button
+                    onClick={() => setIsMobileLeistungenOpen(!isMobileLeistungenOpen)}
+                    className="inline-flex items-center gap-2 text-3xl font-bold text-white/80 hover:text-white transition-colors tracking-tight"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={20}
+                      className={`transition-transform duration-200 ${
+                        isMobileLeistungenOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {isMobileLeistungenOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden flex flex-col items-center gap-4 mt-4"
+                      >
+                        {leistungenDropdown.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`text-lg transition-colors ${
+                              item.href.includes("pflege")
+                                ? "text-accent-light/60 hover:text-accent-light"
+                                : "text-white/40 hover:text-white"
+                            }`}
+                            onClick={() => setIsMobileOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 30 }}
+                  transition={{ delay: i * 0.06, duration: 0.5 }}
+                >
+                  <Link
+                    href={link.href}
+                    className={`text-3xl font-bold transition-colors tracking-tight ${
+                      link.href === "/sichtbarkeitspaket"
+                        ? "text-accent-light hover:text-white"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              )
+            )}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
