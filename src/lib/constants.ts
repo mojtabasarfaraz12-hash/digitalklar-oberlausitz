@@ -69,30 +69,10 @@ export const FOOTER_EXTRA_LINKS = [
   { label: "Pflege-Marketing", href: "/branche/pflege-marketing" },
 ] as const;
 
-export const STATS = [
-  { value: 50, suffix: "+", label: "Zufriedene Kunden" },
-  { value: 100, suffix: "+", label: "Abgeschlossene Projekte" },
-  { value: 5, suffix: "+", label: "Jahre Erfahrung" },
-  { value: 98, suffix: "%", label: "Kundenzufriedenheit" },
-] as const;
+export const TESTIMONIALS: {
+  name: string;
+  role: string;
+  text: string;
+  rating: number;
+}[] = [];
 
-export const TESTIMONIALS = [
-  {
-    name: "Thomas Müller",
-    role: "Inhaber, Müller Handwerk GmbH",
-    text: "Dank DigitalKlar haben wir unsere Online-Sichtbarkeit verdreifacht. Die lokale SEO-Strategie hat uns auf Platz 1 bei Google gebracht.",
-    rating: 5,
-  },
-  {
-    name: "Anna Schmidt",
-    role: "Geschäftsführerin, Schmidt & Partner",
-    text: "Professionelle Beratung mit echtem Mehrwert. Mujtaba versteht genau, was kleine Unternehmen in der Region brauchen.",
-    rating: 5,
-  },
-  {
-    name: "Klaus Weber",
-    role: "Gastronom, Zur alten Mühle",
-    text: "Seit der Zusammenarbeit mit DigitalKlar haben sich unsere Online-Reservierungen verdoppelt. Absolute Empfehlung!",
-    rating: 5,
-  },
-] as const;

@@ -43,22 +43,22 @@ const values = [
 
 const timeline = [
   {
-    year: "Beginn",
-    title: "Leidenschaft entdeckt",
+    year: "Pflege",
+    title: "Branchenerfahrung gesammelt",
     description:
-      "Die Faszination für digitales Marketing begann mit ersten eigenen Projekten und dem Wunsch, lokalen Unternehmen zu helfen.",
+      "Ich arbeite in einem der größten Pflegeunternehmen Deutschlands mit über 73 Niederlassungen. Dort verantworte ich das Marketing und verstehe die Branche von innen.",
   },
   {
-    year: "Erfahrung",
-    title: "Expertise aufgebaut",
+    year: "Marketing",
+    title: "Vom Wissen zur Praxis",
     description:
-      "Durch intensive Weiterbildung und praktische Projekte habe ich tiefes Wissen in SEO, Online-Marketing und digitaler Strategie aufgebaut.",
+      "Aus der täglichen Arbeit mit Webdesign, SEO und digitalem Marketing habe ich tiefes Praxiswissen aufgebaut. Nicht aus dem Lehrbuch, sondern aus echten Projekten.",
   },
   {
     year: "Heute",
     title: "DigitalKlar Oberlausitz",
     description:
-      "Heute unterstütze ich Unternehmen in der Oberlausitz dabei, ihre digitale Sichtbarkeit zu maximieren und online erfolgreich zu sein.",
+      "Heute helfe ich Unternehmen in der Oberlausitz, online sichtbar zu werden. Die Kombination aus Branchenerfahrung und Marketing-Expertise macht den Unterschied.",
   },
 ];
 

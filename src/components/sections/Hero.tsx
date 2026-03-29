@@ -76,7 +76,7 @@ export function Hero() {
 
       {/* Scroll / Interact Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/25 pointer-events-none"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/25 pointer-events-none hidden md:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}

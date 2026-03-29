@@ -7,11 +7,11 @@ import { GlowCard } from "@/components/effects/GlowCard";
 
 const projects = [
   {
-    name: "Zuzu",
+    name: "Zuzu (advita Gruppe)",
     url: "https://www.zuzu.de",
     description:
-      "Moderne Website mit frischem Design und klarer Nutzerführung. Responsive, schnell und optimiert für Suchmaschinen.",
-    tags: ["Webdesign", "SEO", "Responsive"],
+      "Website für das Tochterunternehmen der advita Pflegedienst GmbH. Modernes Design, klare Nutzerführung, responsive und suchmaschinenoptimiert.",
+    tags: ["Webdesign", "SEO", "Pflege", "Responsive"],
   },
   {
     name: "Piet Steglich",

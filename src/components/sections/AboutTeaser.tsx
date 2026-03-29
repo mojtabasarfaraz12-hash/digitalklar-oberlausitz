@@ -37,21 +37,6 @@ export function AboutTeaser() {
                 <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
               </div>
 
-              {/* Floating stats card */}
-              <motion.div
-                className="absolute -bottom-6 -right-4 md:-right-8 rounded-2xl border border-white/10 bg-black/80 backdrop-blur-xl p-5"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                <p className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-accent-light to-white">
-                  5+
-                </p>
-                <p className="text-xs text-white/40 font-medium uppercase tracking-wider mt-1">
-                  Jahre Erfahrung
-                </p>
-              </motion.div>
 
               {/* Subtle border glow */}
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity pointer-events-none" />

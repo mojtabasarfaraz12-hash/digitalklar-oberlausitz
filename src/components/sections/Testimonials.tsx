@@ -9,6 +9,8 @@ import { TESTIMONIALS } from "@/lib/constants";
 export function Testimonials() {
   const [current, setCurrent] = useState(0);
 
+  if (TESTIMONIALS.length === 0) return null;
+
   const next = () => setCurrent((c) => (c + 1) % TESTIMONIALS.length);
   const prev = () =>
     setCurrent((c) => (c - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
