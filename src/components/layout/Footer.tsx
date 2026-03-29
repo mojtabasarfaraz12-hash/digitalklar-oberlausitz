@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
-import { SITE_CONFIG, NAV_LINKS, SERVICES } from "@/lib/constants";
+import { SITE_CONFIG, NAV_LINKS, SERVICES, FOOTER_EXTRA_LINKS } from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -67,6 +67,21 @@ export function Footer() {
                     className="group flex items-center gap-1.5 text-sm text-white/30 transition-colors hover:text-white"
                   >
                     {s.title}
+                    <ArrowUpRight
+                      size={10}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
+                  </Link>
+                </li>
+              ))}
+              <li className="mt-4 pt-4 border-t border-white/[0.04]" />
+              {FOOTER_EXTRA_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="group flex items-center gap-1.5 text-sm text-accent-light/60 transition-colors hover:text-accent-light"
+                  >
+                    {link.label}
                     <ArrowUpRight
                       size={10}
                       className="opacity-0 group-hover:opacity-100 transition-opacity"

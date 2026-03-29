@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: "DigitalKlar Oberlausitz",
   tagline: "Ihre digitale Sichtbarkeit beginnt hier.",
   description:
-    "Lokales Online-Marketing und digitale Sichtbarkeit für Unternehmen in der Oberlausitz. SEO, Digitales Marketing, Beratung und mehr.",
+    "Webdesign, Lokale SEO und Digitales Marketing für Unternehmen in der Oberlausitz. Ihr Partner für digitale Sichtbarkeit.",
   url: "https://www.digitalklar-oberlausitz.de",
   email: "info@digitalklar-oberlausitz.de",
   bookingUrl:
@@ -13,12 +13,27 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Über Mich", href: "/ueber-mich" },
   { label: "Leistungen", href: "/leistungen" },
+  { label: "Sichtbarkeitspaket", href: "/sichtbarkeitspaket" },
+  { label: "Über Mich", href: "/ueber-mich" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;
 
 export const SERVICES = [
+  {
+    slug: "webdesign",
+    title: "Webdesign & Entwicklung",
+    shortTitle: "Webdesign",
+    description:
+      "Moderne, schnelle Websites, die Kunden überzeugen. Vom Design bis zum Hosting — alles aus einer Hand.",
+    icon: "Monitor",
+    features: [
+      "Professionelles Webdesign",
+      "Responsive Entwicklung",
+      "Hosting & Wartung",
+      "Performance-Optimierung",
+    ],
+  },
   {
     slug: "seo",
     title: "Lokale SEO",
@@ -47,34 +62,11 @@ export const SERVICES = [
       "Performance Tracking",
     ],
   },
-  {
-    slug: "beratung",
-    title: "Digitale Beratung",
-    shortTitle: "Beratung",
-    description:
-      "Persönliche Beratung für Ihre digitale Strategie. Gemeinsam finden wir den besten Weg für Ihr Unternehmen.",
-    icon: "MessageCircle",
-    features: [
-      "1:1 Strategieberatung",
-      "Digitale Standortanalyse",
-      "Wettbewerbsanalyse",
-      "Maßgeschneiderter Aktionsplan",
-    ],
-  },
-  {
-    slug: "digitale-sichtbarkeit",
-    title: "Digitale Sichtbarkeit",
-    shortTitle: "Sichtbarkeit",
-    description:
-      "Ihr Unternehmen verdient es, online gesehen zu werden. Ich sorge für maximale Präsenz auf allen relevanten Kanälen.",
-    icon: "Eye",
-    features: [
-      "Website-Optimierung",
-      "Verzeichniseinträge",
-      "Reputation Management",
-      "Sichtbarkeits-Monitoring",
-    ],
-  },
+] as const;
+
+export const FOOTER_EXTRA_LINKS = [
+  { label: "Sichtbarkeitspaket", href: "/sichtbarkeitspaket" },
+  { label: "Pflege-Marketing", href: "/branche/pflege-marketing" },
 ] as const;
 
 export const STATS = [

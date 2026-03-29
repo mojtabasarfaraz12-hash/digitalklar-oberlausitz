@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, TrendingUp, MessageCircle, Eye, ArrowUpRight } from "lucide-react";
+import { Monitor, Search, TrendingUp, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { GlowCard } from "@/components/effects/GlowCard";
 import { StaggerContainer, StaggerItem } from "@/components/effects/ScrollReveal";
@@ -8,10 +8,9 @@ import { ScrollReveal } from "@/components/effects/ScrollReveal";
 import { SERVICES } from "@/lib/constants";
 
 const iconMap: Record<string, React.ReactNode> = {
+  Monitor: <Monitor size={24} strokeWidth={1.5} />,
   Search: <Search size={24} strokeWidth={1.5} />,
   TrendingUp: <TrendingUp size={24} strokeWidth={1.5} />,
-  MessageCircle: <MessageCircle size={24} strokeWidth={1.5} />,
-  Eye: <Eye size={24} strokeWidth={1.5} />,
 };
 
 export function ServicesGrid() {
@@ -38,7 +37,7 @@ export function ServicesGrid() {
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 gap-5 md:grid-cols-2">
+        <StaggerContainer className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {SERVICES.map((service, i) => (
             <StaggerItem key={service.slug}>
               <Link href={`/leistungen/${service.slug}`}>

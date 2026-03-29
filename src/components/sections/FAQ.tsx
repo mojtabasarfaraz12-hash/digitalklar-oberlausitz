@@ -9,12 +9,17 @@ const faqs = [
   {
     question: "Was kostet eine Zusammenarbeit mit DigitalKlar?",
     answer:
-      "Das hängt von Ihrem Bedarf ab. Ich erstelle für jedes Projekt ein individuelles Angebot. Die Erstberatung ist kostenlos und unverbindlich. So bekommen Sie vorab ein klares Bild, was möglich ist und was es kostet.",
+      "Der einfachste Einstieg ist das Sichtbarkeitspaket ab 249€ pro Monat — darin ist alles enthalten: Website, SEO, Google Business Profil, Hosting und persönliche Betreuung. Für individuelle Projekte erstelle ich gerne ein separates Angebot. Die Erstberatung ist immer kostenlos.",
+  },
+  {
+    question: "Was beinhaltet das Sichtbarkeitspaket?",
+    answer:
+      "Im Sichtbarkeitspaket erhalten Sie eine professionelle Website, Google Business Profil Setup und monatliche Optimierung, lokale SEO, Hosting und Wartung, monatliche Reports und mich als persönlichen Ansprechpartner. Alles in einem transparenten Monatspreis, 24 Monate Laufzeit.",
   },
   {
     question: "Wie schnell sehe ich Ergebnisse?",
     answer:
-      "Bei Google Ads und Social Media Kampagnen sehen Sie erste Ergebnisse oft innerhalb weniger Tage. Bei SEO dauert es in der Regel 3 bis 6 Monate, bis sich nachhaltige Verbesserungen im Ranking zeigen. Ich halte Sie dabei mit regelmäßigen Reports auf dem Laufenden.",
+      "Bei Google Ads und Social Media Kampagnen sehen Sie erste Ergebnisse oft innerhalb weniger Tage. Bei SEO dauert es in der Regel 3 bis 6 Monate, bis sich nachhaltige Verbesserungen im Ranking zeigen. Ihre neue Website ist in der Regel innerhalb von 2-4 Wochen online.",
   },
   {
     question: "Arbeiten Sie nur mit Unternehmen aus der Oberlausitz?",
@@ -22,19 +27,14 @@ const faqs = [
       "Mein Schwerpunkt liegt auf der Oberlausitz und Sachsen, aber ich arbeite auch mit Unternehmen aus ganz Deutschland zusammen. Beratungen und Meetings finden flexibel online oder vor Ort statt.",
   },
   {
-    question: "Ich habe noch keine Website. Können Sie mir auch dabei helfen?",
-    answer:
-      "Ja, absolut! Ich erstelle moderne, schnelle Websites, die für Suchmaschinen optimiert sind und auf allen Geräten perfekt aussehen. Von der Konzeption bis zum Launch begleite ich Sie durch den gesamten Prozess.",
-  },
-  {
     question: "Was ist lokale SEO und warum brauche ich das?",
     answer:
-      "Lokale SEO sorgt dafür, dass Ihr Unternehmen bei Google Maps und in den lokalen Suchergebnissen erscheint, wenn potenzielle Kunden in Ihrer Nähe nach Ihren Dienstleistungen suchen. Das ist besonders wichtig für Handwerker, Gastronomen, Ärzte und alle lokalen Dienstleister.",
+      "Lokale SEO sorgt dafür, dass Ihr Unternehmen bei Google Maps und in den lokalen Suchergebnissen erscheint, wenn potenzielle Kunden in Ihrer Nähe nach Ihren Dienstleistungen suchen. Das ist besonders wichtig für Handwerker, Gastronomen, Pflegedienste und alle lokalen Dienstleister.",
   },
   {
     question: "Wie läuft die Zusammenarbeit ab?",
     answer:
-      "Wir starten mit einem kostenlosen Erstgespräch, in dem wir Ihre Ziele besprechen. Dann erstelle ich einen individuellen Plan mit konkreten Maßnahmen. Sie erhalten regelmäßige Updates und können mich jederzeit erreichen. Transparent, persönlich und ohne lange Vertragslaufzeiten.",
+      "Wir starten mit einem kostenlosen Erstgespräch, in dem wir Ihre Ziele besprechen. Dann erstelle ich einen individuellen Plan mit konkreten Maßnahmen. Der einfachste Start ist das Sichtbarkeitspaket — Sie erhalten regelmäßige Updates und können mich jederzeit erreichen.",
   },
 ];
 

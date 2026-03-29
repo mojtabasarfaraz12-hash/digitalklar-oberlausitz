@@ -53,7 +53,11 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[13px] font-medium text-white/40 transition-colors hover:text-white tracking-wide"
+                className={`text-[13px] font-medium transition-colors tracking-wide ${
+                  link.href === "/sichtbarkeitspaket"
+                    ? "text-accent-light hover:text-white"
+                    : "text-white/40 hover:text-white"
+                }`}
               >
                 {link.label}
               </Link>

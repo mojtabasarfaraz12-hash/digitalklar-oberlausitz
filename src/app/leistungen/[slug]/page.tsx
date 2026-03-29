@@ -37,30 +37,17 @@ const serviceDetails: Record<
       "Laufende Auswertung und Anpassung",
     ],
   },
-  beratung: {
+  webdesign: {
     problem:
-      "Der digitale Wandel kann überwältigend sein. Welche Kanäle sind relevant? Wo investiere ich mein Budget am besten? Ohne klare Strategie verbrennen Sie Geld und Zeit.",
+      "Viele Unternehmen haben entweder keine Website oder eine veraltete, die auf mobilen Geräten schlecht aussieht. Potenzielle Kunden verlieren sofort das Vertrauen und gehen zur Konkurrenz.",
     solution:
-      "In persönlichen Beratungsgesprächen entwickle ich mit Ihnen eine maßgeschneiderte digitale Strategie. Verständlich, umsetzbar und auf Ihre Ziele zugeschnitten.",
+      "Ich erstelle moderne, schnelle Websites, die auf allen Geräten perfekt aussehen und für Suchmaschinen optimiert sind. Vom Design bis zum Hosting — alles aus einer Hand.",
     process: [
-      "Kostenlose Erstberatung und Bestandsaufnahme",
-      "Analyse Ihrer Stärken und Potenziale",
-      "Entwicklung einer individuellen Strategie",
-      "Priorisierung der Maßnahmen",
-      "Begleitung bei der Umsetzung",
-    ],
-  },
-  "digitale-sichtbarkeit": {
-    problem:
-      "Ihr Unternehmen existiert online kaum? Kunden finden Sie nicht bei Google, in Verzeichnissen oder auf sozialen Medien? Dann verschenken Sie wertvolles Potenzial.",
-    solution:
-      "Ich sorge dafür, dass Ihr Unternehmen auf allen relevanten Plattformen präsent und auffindbar ist. Konsistent, professionell und überzeugend.",
-    process: [
-      "Kompletter Sichtbarkeits-Check Ihrer Online-Präsenz",
-      "Optimierung aller Verzeichniseinträge",
-      "Aufbau konsistenter Unternehmensprofile",
-      "Reputation Management und Bewertungsstrategie",
-      "Laufendes Monitoring Ihrer Sichtbarkeit",
+      "Analyse Ihrer Anforderungen und Zielgruppe",
+      "Modernes Webdesign mit Ihrem Branding",
+      "Responsive Entwicklung für alle Geräte",
+      "Suchmaschinenoptimierte Struktur",
+      "Hosting-Setup, Launch und laufende Wartung",
     ],
   },
 };
