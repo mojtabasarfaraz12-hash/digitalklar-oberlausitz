@@ -17,7 +17,8 @@ export default function ImpressumPage() {
           <p>
             {SITE_CONFIG.owner}<br />
             {SITE_CONFIG.name}<br />
-            Oberlausitz, Sachsen
+            Fortschrittsiedlung 34<br />
+            02692 Obergurig
           </p>
 
           <h2>Kontakt</h2>
@@ -28,7 +29,8 @@ export default function ImpressumPage() {
           <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
           <p>
             {SITE_CONFIG.owner}<br />
-            Oberlausitz, Sachsen
+            Fortschrittsiedlung 34<br />
+            02692 Obergurig
           </p>
 
           <h2>Haftungsausschluss</h2>
