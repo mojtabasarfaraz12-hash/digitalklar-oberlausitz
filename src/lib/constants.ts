@@ -71,21 +71,9 @@ export const FOOTER_EXTRA_LINKS = [
 
 export const TESTIMONIALS = [
   {
-    name: "Thomas Müller",
-    role: "Inhaber, Müller Handwerk GmbH",
-    text: "Dank DigitalKlar haben wir unsere Online-Sichtbarkeit verdreifacht. Die lokale SEO-Strategie hat uns auf Platz 1 bei Google gebracht.",
-    rating: 5,
-  },
-  {
-    name: "Anna Schmidt",
-    role: "Geschäftsführerin, Schmidt & Partner",
-    text: "Professionelle Beratung mit echtem Mehrwert. Mujtaba versteht genau, was kleine Unternehmen in der Region brauchen.",
-    rating: 5,
-  },
-  {
-    name: "Klaus Weber",
-    role: "Gastronom, Zur alten Mühle",
-    text: "Seit der Zusammenarbeit mit DigitalKlar haben sich unsere Online-Reservierungen verdoppelt. Absolute Empfehlung!",
+    name: "Piet Steglich",
+    role: "Vermögensberater, Dresden",
+    text: "Ich bin mit der Zusammenarbeit rundum zufrieden. Mo ist von Anfang an auf meine Vorstellungen und Wünsche eingegangen und hat diese Schritt für Schritt genau so umgesetzt. Mit dem Ergebnis bin ich sehr zufrieden. Klare Empfehlung!",
     rating: 5,
   },
 ] as const;
