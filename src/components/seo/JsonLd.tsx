@@ -1,4 +1,5 @@
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
+import { CITIES } from "@/lib/cities";
 
 function LocalBusinessSchema() {
   const schema = {
@@ -9,38 +10,43 @@ function LocalBusinessSchema() {
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
+    telephone: SITE_CONFIG.phoneIntl,
+    image: `${SITE_CONFIG.url}/og-image.png`,
+    logo: `${SITE_CONFIG.url}/logo.png`,
     founder: {
       "@type": "Person",
       name: SITE_CONFIG.owner,
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Bautzen",
-      addressRegion: "Sachsen",
-      postalCode: "02625",
-      addressCountry: "DE",
+      streetAddress: SITE_CONFIG.address.street,
+      addressLocality: SITE_CONFIG.address.city,
+      addressRegion: SITE_CONFIG.address.region,
+      postalCode: SITE_CONFIG.address.postalCode,
+      addressCountry: SITE_CONFIG.address.country,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: SITE_CONFIG.address.latitude,
+      longitude: SITE_CONFIG.address.longitude,
     },
     areaServed: [
       {
         "@type": "GeoCircle",
         geoMidpoint: {
           "@type": "GeoCoordinates",
-          latitude: 51.1814,
-          longitude: 14.4244,
+          latitude: SITE_CONFIG.address.latitude,
+          longitude: SITE_CONFIG.address.longitude,
         },
-        geoRadius: "50000",
+        geoRadius: "60000",
       },
       { "@type": "AdministrativeArea", name: "Oberlausitz" },
-      { "@type": "City", name: "Bautzen" },
-      { "@type": "City", name: "Goerlitz" },
-      { "@type": "City", name: "Zittau" },
-      { "@type": "City", name: "Loebau" },
-      { "@type": "City", name: "Kamenz" },
-      { "@type": "City", name: "Hoyerswerda" },
-      { "@type": "City", name: "Niesky" },
+      { "@type": "AdministrativeArea", name: "Landkreis Bautzen" },
+      { "@type": "AdministrativeArea", name: "Landkreis Görlitz" },
+      ...CITIES.map((c) => ({ "@type": "City" as const, name: c.name })),
       { "@type": "City", name: "Dresden" },
     ],
-    priceRange: "$$",
+    priceRange: "€€",
     knowsLanguage: ["de", "en"],
     sameAs: [],
   };
@@ -64,10 +70,10 @@ function ServicesSchema() {
       "@id": `${SITE_CONFIG.url}/#business`,
       name: SITE_CONFIG.name,
     },
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Oberlausitz",
-    },
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Oberlausitz" },
+      ...CITIES.map((c) => ({ "@type": "City" as const, name: c.name })),
+    ],
     url: `${SITE_CONFIG.url}/leistungen/${service.slug}`,
   }));
 

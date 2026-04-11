@@ -5,15 +5,27 @@ export const SITE_CONFIG = {
     "Webdesign, Lokale SEO und Digitales Marketing für Unternehmen in der Oberlausitz. Ihr Partner für digitale Sichtbarkeit.",
   url: "https://www.digitalklar-oberlausitz.de",
   email: "info@digitalklar-oberlausitz.de",
+  phone: "0176 55862137",
+  phoneIntl: "+4917655862137",
   bookingUrl:
     "https://outlook.office.com/book/LokalesOnlineMarketingDigitalKlarOberlausitz@digitalklar-oberlausitz.de/?ismsaljsauthenabled",
   region: "Oberlausitz",
   owner: "Mujtaba Sarfaraz",
+  address: {
+    street: "Fortschrittsiedlung 34",
+    postalCode: "02692",
+    city: "Obergurig",
+    region: "Sachsen",
+    country: "DE",
+    latitude: 51.1539,
+    longitude: 14.4503,
+  },
 } as const;
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Leistungen", href: "/leistungen" },
+  { label: "Standorte", href: "/standorte" },
   { label: "Sichtbarkeitspaket", href: "/sichtbarkeitspaket" },
   { label: "Über Mich", href: "/ueber-mich" },
   { label: "Kontakt", href: "/kontakt" },
@@ -67,6 +79,7 @@ export const SERVICES = [
 export const FOOTER_EXTRA_LINKS = [
   { label: "Sichtbarkeitspaket", href: "/sichtbarkeitspaket" },
   { label: "Pflege-Marketing", href: "/branche/pflege-marketing" },
+  { label: "Standorte", href: "/standorte" },
 ] as const;
 
 export const TESTIMONIALS = [
@@ -77,4 +90,3 @@ export const TESTIMONIALS = [
     rating: 5,
   },
 ] as const;
-

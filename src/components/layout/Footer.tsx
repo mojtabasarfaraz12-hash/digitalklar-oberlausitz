@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { SITE_CONFIG, NAV_LINKS, SERVICES, FOOTER_EXTRA_LINKS } from "@/lib/constants";
+import { CITIES } from "@/lib/cities";
 
 export function Footer() {
   return (
@@ -28,10 +29,21 @@ export function Footer() {
                 <Mail size={14} />
                 {SITE_CONFIG.email}
               </a>
-              <span className="flex items-center gap-2.5 text-sm text-white/30">
-                <MapPin size={14} />
-                Oberlausitz, Sachsen
-              </span>
+              <a
+                href={`tel:${SITE_CONFIG.phoneIntl}`}
+                className="flex items-center gap-2.5 text-sm text-white/30 transition-colors hover:text-white"
+              >
+                <Phone size={14} />
+                {SITE_CONFIG.phone}
+              </a>
+              <address className="not-italic flex items-start gap-2.5 text-sm text-white/30">
+                <MapPin size={14} className="mt-0.5 shrink-0" />
+                <span>
+                  {SITE_CONFIG.address.street}
+                  <br />
+                  {SITE_CONFIG.address.postalCode} {SITE_CONFIG.address.city}
+                </span>
+              </address>
             </div>
           </div>
 
@@ -106,6 +118,24 @@ export function Footer() {
             >
               Termin buchen <ArrowUpRight size={12} />
             </a>
+          </div>
+        </div>
+
+        {/* Standorte Linkleiste */}
+        <div className="mt-16 pt-8 border-t border-white/[0.04]">
+          <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/20 mb-4">
+            Standorte in der Oberlausitz
+          </h3>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {CITIES.map((city) => (
+              <Link
+                key={city.slug}
+                href={`/standorte/${city.slug}`}
+                className="text-xs text-white/30 transition-colors hover:text-white"
+              >
+                Webdesign {city.name}
+              </Link>
+            ))}
           </div>
         </div>
 
