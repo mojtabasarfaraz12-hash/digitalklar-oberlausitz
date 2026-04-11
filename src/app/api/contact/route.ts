@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -12,28 +15,40 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Integrate with Resend or another email service
-    // For now, log the contact form submission
-    console.log("Contact form submission:", { name, email, subject, message });
+    const escape = (value: string) =>
+      value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
-    // When Resend is configured, uncomment and add your API key:
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: "website@digitalklar-oberlausitz.de",
-    //   to: "info@digitalklar-oberlausitz.de",
-    //   subject: `Kontaktformular: ${subject}`,
-    //   html: `
-    //     <h2>Neue Kontaktanfrage</h2>
-    //     <p><strong>Name:</strong> ${name}</p>
-    //     <p><strong>E-Mail:</strong> ${email}</p>
-    //     <p><strong>Betreff:</strong> ${subject}</p>
-    //     <p><strong>Nachricht:</strong></p>
-    //     <p>${message}</p>
-    //   `,
-    // });
+    const { error } = await resend.emails.send({
+      from: "Website <website@digitalklar-oberlausitz.de>",
+      to: ["info@digitalklar-oberlausitz.de"],
+      replyTo: email,
+      subject: `Kontaktformular: ${subject}`,
+      html: `
+        <h2>Neue Kontaktanfrage</h2>
+        <p><strong>Name:</strong> ${escape(name)}</p>
+        <p><strong>E-Mail:</strong> ${escape(email)}</p>
+        <p><strong>Betreff:</strong> ${escape(subject)}</p>
+        <p><strong>Nachricht:</strong></p>
+        <p>${escape(message).replace(/\n/g, "<br>")}</p>
+      `,
+    });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json(
+        { error: "E-Mail konnte nicht gesendet werden" },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err) {
+    console.error("Contact form error:", err);
     return NextResponse.json(
       { error: "Interner Serverfehler" },
       { status: 500 }
