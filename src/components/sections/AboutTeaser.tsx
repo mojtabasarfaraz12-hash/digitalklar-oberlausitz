@@ -16,7 +16,7 @@ export function AboutTeaser() {
   return (
     <section className="relative py-28 md:py-40 overflow-hidden">
       {/* Background accent */}
-      <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-accent/5 blur-[150px]" />
+      <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-accent/5 blur-[80px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-16 md:grid-cols-2 lg:gap-24">

@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from 'react';
-
-// --- Types ---
+import React, { useEffect, useRef, useCallback } from 'react';
 
 interface Particle {
   x: number;
@@ -13,7 +11,6 @@ interface Particle {
   vy: number;
   size: number;
   color: string;
-  angle: number;
 }
 
 interface BackgroundParticle {
@@ -32,18 +29,14 @@ interface MouseState {
   isActive: boolean;
 }
 
-// --- Configuration ---
-
-const PARTICLE_DENSITY = 0.00018;
-const BG_PARTICLE_DENSITY = 0.00006;
-const MOUSE_RADIUS = 200;
+const PARTICLE_DENSITY = 0.00008;
+const BG_PARTICLE_DENSITY = 0.00003;
+const MOUSE_RADIUS = 150;
 const RETURN_SPEED = 0.08;
 const DAMPING = 0.90;
-const REPULSION_STRENGTH = 1.4;
+const REPULSION_STRENGTH = 1.2;
 
 const randomRange = (min: number, max: number) => Math.random() * (max - min) + min;
-
-// --- Canvas Component ---
 
 export const AntiGravityCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -53,7 +46,6 @@ export const AntiGravityCanvas: React.FC = () => {
   const backgroundParticlesRef = useRef<BackgroundParticle[]>([]);
   const mouseRef = useRef<MouseState>({ x: -1000, y: -1000, isActive: false });
   const frameIdRef = useRef<number>(0);
-  const lastTimeRef = useRef<number>(0);
 
   const initParticles = useCallback((width: number, height: number) => {
     const particleCount = Math.floor(width * height * PARTICLE_DENSITY);
@@ -62,12 +54,11 @@ export const AntiGravityCanvas: React.FC = () => {
     for (let i = 0; i < particleCount; i++) {
       const x = Math.random() * width;
       const y = Math.random() * height;
-      // DigitalKlar brand colors: gold, amber, warm white
       const colorRoll = Math.random();
       let color = '#ffffff';
-      if (colorRoll > 0.88) color = '#F59E0B'; // Gold
-      else if (colorRoll > 0.82) color = '#FBBF24'; // Light Gold
-      else if (colorRoll > 0.78) color = '#D97706'; // Dark Amber
+      if (colorRoll > 0.88) color = '#F59E0B';
+      else if (colorRoll > 0.82) color = '#FBBF24';
+      else if (colorRoll > 0.78) color = '#D97706';
 
       newParticles.push({
         x, y,
@@ -76,7 +67,6 @@ export const AntiGravityCanvas: React.FC = () => {
         vx: 0, vy: 0,
         size: randomRange(1, 2.8),
         color,
-        angle: Math.random() * Math.PI * 2,
       });
     }
     particlesRef.current = newParticles;
@@ -104,10 +94,8 @@ export const AntiGravityCanvas: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    lastTimeRef.current = time;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Pulsating radial glow — violet/indigo
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const pulseOpacity = Math.sin(time * 0.0008) * 0.04 + 0.09;
@@ -147,92 +135,46 @@ export const AntiGravityCanvas: React.FC = () => {
     }
     ctx.globalAlpha = 1.0;
 
-    // Main particles — physics
+    // Main particles - physics (no collision detection)
     const particles = particlesRef.current;
     const mouse = mouseRef.current;
 
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
-      const dx = mouse.x - p.x;
-      const dy = mouse.y - p.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (mouse.isActive && distance < MOUSE_RADIUS) {
-        const forceDirectionX = dx / distance;
-        const forceDirectionY = dy / distance;
-        const force = (MOUSE_RADIUS - distance) / MOUSE_RADIUS;
-        const repulsion = force * REPULSION_STRENGTH;
-        p.vx -= forceDirectionX * repulsion * 5;
-        p.vy -= forceDirectionY * repulsion * 5;
+      if (mouse.isActive) {
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const distSq = dx * dx + dy * dy;
+
+        if (distSq < MOUSE_RADIUS * MOUSE_RADIUS) {
+          const distance = Math.sqrt(distSq);
+          const force = (MOUSE_RADIUS - distance) / MOUSE_RADIUS;
+          const repulsion = force * REPULSION_STRENGTH;
+          p.vx -= (dx / distance) * repulsion * 5;
+          p.vy -= (dy / distance) * repulsion * 5;
+        }
       }
 
       const springDx = p.originX - p.x;
       const springDy = p.originY - p.y;
       p.vx += springDx * RETURN_SPEED;
       p.vy += springDy * RETURN_SPEED;
-    }
 
-    // Collision
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const p1 = particles[i];
-        const p2 = particles[j];
-        const dx = p2.x - p1.x;
-        const dy = p2.y - p1.y;
-        const distSq = dx * dx + dy * dy;
-        const minDist = p1.size + p2.size;
-
-        if (distSq < minDist * minDist) {
-          const dist = Math.sqrt(distSq);
-          if (dist > 0.01) {
-            const nx = dx / dist;
-            const ny = dy / dist;
-            const overlap = minDist - dist;
-            const pushX = nx * overlap * 0.5;
-            const pushY = ny * overlap * 0.5;
-            p1.x -= pushX;
-            p1.y -= pushY;
-            p2.x += pushX;
-            p2.y += pushY;
-
-            const dvx = p1.vx - p2.vx;
-            const dvy = p1.vy - p2.vy;
-            const velocityAlongNormal = dvx * nx + dvy * ny;
-
-            if (velocityAlongNormal > 0) {
-              const m1 = p1.size;
-              const m2 = p2.size;
-              const restitution = 0.85;
-              const impulseMagnitude = (-(1 + restitution) * velocityAlongNormal) / (1 / m1 + 1 / m2);
-              const impulseX = impulseMagnitude * nx;
-              const impulseY = impulseMagnitude * ny;
-              p1.vx += impulseX / m1;
-              p1.vy += impulseY / m1;
-              p2.vx -= impulseX / m2;
-              p2.vy -= impulseY / m2;
-            }
-          }
-        }
-      }
-    }
-
-    // Integration & Drawing
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
       p.vx *= DAMPING;
       p.vy *= DAMPING;
       p.x += p.vx;
       p.y += p.vy;
 
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       const velocity = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
       const opacity = Math.min(0.3 + velocity * 0.1, 1);
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
 
       if (p.color === '#ffffff') {
         ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
       } else {
-        // Gold/Amber particles glow brighter
         ctx.fillStyle = p.color;
         ctx.globalAlpha = Math.min(opacity + 0.2, 1);
       }
@@ -247,7 +189,7 @@ export const AntiGravityCanvas: React.FC = () => {
     const handleResize = () => {
       if (containerRef.current && canvasRef.current) {
         const { width, height } = containerRef.current.getBoundingClientRect();
-        const dpr = window.devicePixelRatio || 1;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
         canvasRef.current.width = width * dpr;
         canvasRef.current.height = height * dpr;
         canvasRef.current.style.width = `${width}px`;

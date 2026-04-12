@@ -162,7 +162,7 @@ export default function UeberMichPage() {
 
       {/* Pflege-Hintergrund Highlight */}
       <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-accent/5 blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-accent/5 blur-[80px]" />
 
         <div className="relative mx-auto max-w-4xl px-6">
           <ScrollReveal>

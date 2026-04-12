@@ -10,7 +10,7 @@ export function PackageHighlight() {
   return (
     <section className="relative py-28 md:py-40 overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-accent/8 blur-[180px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-accent/8 blur-[80px]" />
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <ScrollReveal>

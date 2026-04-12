@@ -26,7 +26,7 @@ export function Portfolio() {
   return (
     <section className="relative py-28 md:py-40 overflow-hidden">
       {/* Background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-accent/5 blur-[150px]" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-accent/5 blur-[80px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <ScrollReveal>

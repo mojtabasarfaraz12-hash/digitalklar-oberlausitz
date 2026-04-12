@@ -230,7 +230,7 @@ export default async function CityPage({ params }: Params) {
 
       {/* Long form intro */}
       <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-accent/5 blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-accent/5 blur-[80px]" />
         <div className="relative mx-auto max-w-3xl px-6">
           <ScrollReveal>
             <h2 className="text-3xl font-bold md:text-4xl">
