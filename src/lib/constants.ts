@@ -25,8 +25,9 @@ export const SITE_CONFIG = {
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Leistungen", href: "/leistungen" },
+  { label: "Branchen", href: "/branche" },
   { label: "Standorte", href: "/standorte" },
-  { label: "Sichtbarkeitspaket", href: "/sichtbarkeitspaket" },
+  { label: "Ratgeber", href: "/ratgeber" },
   { label: "Über Mich", href: "/ueber-mich" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;
@@ -79,7 +80,9 @@ export const SERVICES = [
 export const FOOTER_EXTRA_LINKS = [
   { label: "Sichtbarkeitspaket", href: "/sichtbarkeitspaket" },
   { label: "Pflege-Marketing", href: "/branche/pflege-marketing" },
+  { label: "Handwerk-Marketing", href: "/branche/handwerk-marketing" },
   { label: "Standorte", href: "/standorte" },
+  { label: "Ratgeber", href: "/ratgeber" },
 ] as const;
 
 export const TESTIMONIALS = [

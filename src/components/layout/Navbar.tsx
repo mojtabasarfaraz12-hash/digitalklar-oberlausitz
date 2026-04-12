@@ -120,11 +120,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-[13px] font-medium transition-colors tracking-wide ${
-                    link.href === "/sichtbarkeitspaket"
-                      ? "text-accent-light hover:text-white"
-                      : "text-white/40 hover:text-white"
-                  }`}
+                  className="text-[13px] font-medium transition-colors tracking-wide text-white/40 hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -219,11 +215,7 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`text-3xl font-bold transition-colors tracking-tight ${
-                      link.href === "/sichtbarkeitspaket"
-                        ? "text-accent-light hover:text-white"
-                        : "text-white/80 hover:text-white"
-                    }`}
+                    className="text-3xl font-bold transition-colors tracking-tight text-white/80 hover:text-white"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     {link.label}

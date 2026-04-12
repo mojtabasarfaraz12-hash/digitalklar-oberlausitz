@@ -16,8 +16,29 @@ import { GlowCard } from "@/components/effects/GlowCard";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { CTASection } from "@/components/sections/CTASection";
-import { CITIES, FOCUS_LABELS, getCityBySlug } from "@/lib/cities";
+import { CITIES, FOCUS_LABELS, getCityBySlug, type City } from "@/lib/cities";
 import { SITE_CONFIG } from "@/lib/constants";
+
+function getCityFaqs(city: City) {
+  return [
+    {
+      question: `Was kostet Webdesign in ${city.name}?`,
+      answer: `Die Kosten für eine professionelle Website in ${city.name} hängen vom Umfang ab. Ich arbeite mit einem transparenten Sichtbarkeitspaket: Website, SEO und laufende Betreuung in einem monatlichen Festpreis. So haben Sie volle Kostenkontrolle ohne versteckte Gebühren. In einem kostenlosen Erstgespräch analysiere ich Ihre aktuelle Situation und erstelle ein individuelles Angebot.`,
+    },
+    {
+      question: `Wie werde ich bei Google in ${city.name} gefunden?`,
+      answer: `Lokale Sichtbarkeit bei Google basiert auf drei Säulen: eine technisch saubere, schnelle Website mit den richtigen Inhalten, ein gepflegtes Google Business Profil und positive Kundenbewertungen. Ich optimiere alle drei Bereiche systematisch für ${city.name} und Umgebung. Erste Verbesserungen sehen Sie oft schon nach wenigen Wochen.`,
+    },
+    {
+      question: `Warum einen lokalen Marketing-Experten aus der Oberlausitz beauftragen?`,
+      answer: `Weil ich den Markt in ${city.name} und der Oberlausitz aus eigener Erfahrung kenne. Ich verstehe, welche Suchbegriffe Ihre Kunden verwenden, kenne die lokale Konkurrenz und bin für persönliche Termine direkt vor Ort. Große Agenturen aus Berlin oder Leipzig haben dieses Verständnis nicht.`,
+    },
+    {
+      question: `Wie lange dauert es, bis meine Website in ${city.name} bei Google rankt?`,
+      answer: `Ein optimiertes Google Business Profil zeigt oft schon nach 2 bis 4 Wochen Wirkung. Für organische Rankings bei Suchbegriffen wie "Webdesign ${city.name}" oder branchenspezifische Begriffe rechnen Sie mit 3 bis 6 Monaten. In ${city.name} ist der Wettbewerb geringer als in Großstädten, was die Chancen für schnelle Ergebnisse deutlich erhöht.`,
+    },
+  ];
+}
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -130,6 +151,21 @@ export default async function CityPage({ params }: Params) {
     ],
   };
 
+  const faqs = getCityFaqs(city);
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   const otherCities = CITIES.filter((c) => c.slug !== city.slug);
 
   return (
@@ -141,6 +177,10 @@ export default async function CityPage({ params }: Params) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* Hero */}
@@ -302,6 +342,42 @@ export default async function CityPage({ params }: Params) {
               </Button>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold md:text-4xl">
+                Häufige{" "}
+                <span className="gradient-text-accent">Fragen</span>
+              </h2>
+              <p className="mt-4 text-white/40">
+                Antworten rund um Webdesign und Online-Marketing in {city.name}.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <ScrollReveal key={i} delay={i * 0.05}>
+                <details className="group rounded-xl border border-border bg-surface-2 overflow-hidden">
+                  <summary className="flex cursor-pointer items-center justify-between p-5 text-white font-medium hover:text-accent-light transition-colors">
+                    <span className="pr-4">{faq.question}</span>
+                    <ArrowRight
+                      size={16}
+                      className="shrink-0 text-white/30 transition-transform group-open:rotate-90"
+                    />
+                  </summary>
+                  <div className="px-5 pb-5">
+                    <p className="text-white/50 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
